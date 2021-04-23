@@ -9,18 +9,24 @@
 		<version>2.4.5</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<distributionManagement>
-		<repository>
-			<id>release</id>
-			<name>releases</name>
-			<url>http://localhost:8081/artifactory/maven-libs-release</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshot</id>
-			<name>snapshots</name>
-			<url>http://localhost:8081/artifactory/maven-libs-snapshot</url>
-		</snapshotRepository>
-	</distributionManagement>
+	
+		<repositories>
+			<repository>
+				<snapshots>
+					<enabled>false</enabled>
+				</snapshots>
+				<id>central</id>
+				<name>mvn-libs-release</name>
+				<url>http://localhost:8081/artifactory/mvn-libs-release</url>
+			</repository>
+			<repository>
+				<snapshots />
+				<id>snapshots</id>
+				<name>mvn-libs-snapshot</name>
+				<url>http://localhost:8081/artifactory/mvn-libs-snapshot</url>
+			</repository>
+		</repositories>
+	
 
 
 	<scm>
@@ -93,15 +99,15 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			
+
 		</plugins>
 		<extensions>
-				<extension>
-					<groupId>org.apache.maven.wagon</groupId>
-					<artifactId>wagon-http</artifactId>
-					<version>2.10</version>
-				</extension>
-			</extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-http</artifactId>
+				<version>2.10</version>
+			</extension>
+		</extensions>
 	</build>
 
 </project>
